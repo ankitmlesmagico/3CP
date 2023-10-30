@@ -14,7 +14,11 @@ const getEmptyValue = () => {
   return { user: '', department: '', language: '' };
 };
 
-const ApprovedCourses = () => {
+const ApprovedCourses = ({
+  activeComponenet,
+}: {
+  activeComponenet: string;
+}) => {
   const [input, setInput] = useState<SearchInputType>(getEmptyValue());
   const handleSearch = () => {
     //  do somethind here
@@ -30,7 +34,7 @@ const ApprovedCourses = () => {
       <p className='my-2 text-[18px] font-medium leading-5 text-[#65758C]'>
         15 Courses
       </p>
-      <CourseItems />
+      <CourseItems activeComponenet={activeComponenet} />
       {/* in case of no item show below item */}
       {/* <div className="mx-7  flex justify-center flex-col items-center gap-2">
         <EmptyBox width="160px" />

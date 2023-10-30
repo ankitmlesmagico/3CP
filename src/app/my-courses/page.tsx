@@ -4,12 +4,7 @@ import { useState } from 'react';
 import CoursesNavbar from '@/components/navbar/CoursesNavbar';
 import DontWorryPopUp from '@/components/popUps/DontWorryPopUp';
 
-import {
-  ApprovedCourses,
-  Archived,
-  PendingForApproval,
-  RejectedCourse,
-} from '../../components/Course';
+import { ApprovedCourses } from '../../components/Course';
 
 const MyCourses = () => {
   const [activeComponent, setActiveComponent] =
@@ -28,10 +23,18 @@ const MyCourses = () => {
       />
 
       <div className='h-full'>
-        {activeComponent === 'approvedCourses' && <ApprovedCourses />}
-        {activeComponent === 'pendingApproval' && <PendingForApproval />}
-        {activeComponent === 'rejectedCourse' && <RejectedCourse />}
-        {activeComponent === 'archived' && <Archived />}
+        {activeComponent === 'approvedCourses' && (
+          <ApprovedCourses activeComponenet={activeComponent} />
+        )}
+        {activeComponent === 'pendingApproval' && (
+          <ApprovedCourses activeComponenet={activeComponent} />
+        )}
+        {activeComponent === 'rejectedCourse' && (
+          <ApprovedCourses activeComponenet={activeComponent} />
+        )}
+        {activeComponent === 'archived' && (
+          <ApprovedCourses activeComponenet={activeComponent} />
+        )}
       </div>
     </div>
   );

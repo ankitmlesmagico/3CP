@@ -11,15 +11,23 @@ const CoursesNavbar = ({
   handleActiveComponent: (value: string) => void;
 }) => {
   return (
-    <div className='mx-7 mt-5 flex justify-between border-b-2 border-[#ECECEC]'>
-      <div className='flex  gap-5 border-b-2 border-[#ECECEC]'>
+    <div
+      className={`border-[#ECECEC]' mx-7 mt-5 flex justify-between border-b-2 ${outfit.className}`}
+    >
+      <div className='flex  gap-5'>
         <div
           className={`flex justify-center px-2.5 pb-4 pt-2.5 align-middle ${
-            activeComponent == 'approvedCourses' && 'border-b-3 border-black'
+            activeComponent === 'approvedCourses'
+              ? 'border-b-[3px] border-black'
+              : ''
           } `}
         >
           <nav
-            className={`cursor-pointer text-[20px] font-semibold not-italic	text-[#272728] ${outfit.className} `}
+            className={`cursor-pointer text-[20px] font-semibold  ${
+              activeComponent == 'approvedCourses'
+                ? 'text-[#272728]'
+                : 'text-[#65758C]'
+            }`}
             onClick={() => handleActiveComponent('approvedCourses')}
           >
             Approved Courses
@@ -27,12 +35,17 @@ const CoursesNavbar = ({
         </div>
         <div
           className={`flex justify-center px-2.5 pb-4 pt-2.5 align-middle ${
-            activeComponent == 'pendingApproval' && 'border-b-3 border-black'
+            activeComponent == 'pendingApproval' &&
+            'border-b-[3px] border-black'
           } `}
         >
           {' '}
           <nav
-            className={`cursor-pointer text-[20px] font-semibold not-italic	text-[#65758C]	 ${outfit.className}`}
+            className={`cursor-pointer text-[20px] font-semibold  ${
+              activeComponent == 'pendingApproval'
+                ? 'text-[#272728]'
+                : 'text-[#65758C]'
+            }`}
             onClick={() => handleActiveComponent('pendingApproval')}
           >
             Pending For Approval
@@ -40,12 +53,16 @@ const CoursesNavbar = ({
         </div>
         <div
           className={`flex justify-center px-2.5 pb-4 pt-2.5 align-middle ${
-            activeComponent == 'rejectedCourse' && 'border-b-3 border-black'
+            activeComponent == 'rejectedCourse' && 'border-b-[3px] border-black'
           } `}
         >
           {' '}
           <nav
-            className={`cursor-pointer text-[20px] font-semibold not-italic	text-[#65758C]	 ${outfit.className}`}
+            className={`cursor-pointer text-[20px] font-semibold  ${
+              activeComponent == 'rejectedCourse'
+                ? 'text-[#272728]'
+                : 'text-[#65758C]'
+            }`}
             onClick={() => handleActiveComponent('rejectedCourse')}
           >
             Rejected Course
@@ -53,12 +70,16 @@ const CoursesNavbar = ({
         </div>
         <div
           className={`flex justify-center px-2.5 pb-4 pt-2.5 align-middle ${
-            activeComponent == 'archived' && 'border-b-3 border-black'
+            activeComponent == 'archived' && 'border-b-[3px] border-black'
           } `}
         >
           {' '}
           <nav
-            className={`cursor-pointer text-[20px] font-semibold not-italic	text-[#65758C]	 ${outfit.className}`}
+            className={`cursor-pointer text-[20px] font-semibold  ${
+              activeComponent == 'archived'
+                ? 'text-[#272728]'
+                : 'text-[#65758C]'
+            }`}
             onClick={() => handleActiveComponent('archived')}
           >
             Archived
